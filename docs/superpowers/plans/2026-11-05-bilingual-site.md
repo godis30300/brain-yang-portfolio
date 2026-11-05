@@ -8,6 +8,8 @@
 
 **Tech Stack:** HTML5、CSS、原生 JavaScript ES Modules、Node.js 內建測試、GitHub Pages
 
+**Status:** Complete — 2026-11-05；9/9 tests passed，GitHub Pages 與桌面／390px 瀏覽器 QA 完成。
+
 ## Global Constraints
 
 - 首次載入預設繁體中文，不依瀏覽器語言自動切換。
@@ -750,3 +752,4 @@ export const TRANSLATIONS = Object.freeze({
     }),
 });
 ```
+
