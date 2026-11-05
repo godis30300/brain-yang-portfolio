@@ -46,6 +46,31 @@ a { color: var(--accent); text-underline-offset: 0.2em; }
 .mobile-nav[hidden] { display: none; }
 .menu-toggle { display: none; }
 .menu-toggle[hidden] { display: none; }
+.language-switcher {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.language-option {
+  min-height: 2.25rem;
+  padding: 0.35rem 0.55rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.language-option[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
 section { padding-block: 6rem; border-bottom: 1px solid var(--line); }
 .hero { min-height: calc(100svh - 4rem); display: grid; place-items: center; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr); gap: 4rem; align-items: end; }
@@ -130,6 +155,8 @@ footer p { margin: 0; }
   .hero-grid, .project-grid, .experience-item, .cert-grid { grid-template-columns: 1fr; }
   section { padding-block: 4rem; }
   .site-header nav { flex-wrap: wrap; gap: 0.25rem 1rem; padding-block: 0.75rem; }
+  .language-switcher { margin-inline-start: auto; }
+  .menu-toggle { flex-shrink: 0; }
   .nav-links:not(.desktop-nav) { width: 100%; gap: 0 1rem; }
   .mobile-nav { display: flex; flex-basis: 100%; flex-wrap: wrap; padding-block: 0.5rem; }
   .hero { min-height: calc(85svh - 4rem); padding-block: 4.5rem; gap: 1.25rem; }
@@ -156,7 +183,7 @@ footer p { margin: 0; }
 }
 
 @media print {
-  .site-header, .menu-toggle, .scroll-cue { display: none !important; }
+  .site-header, .menu-toggle, .language-switcher, .scroll-cue { display: none !important; }
   body { color: #000; font-size: 10.5pt; }
   section { break-inside: avoid; padding-block: 1.5rem; }
   .project-card { box-shadow: none; border: 1px solid #bbb; }
@@ -186,3 +213,4 @@ footer p { margin: 0; }
   .tags li { background: none; border: 1px solid #bbb; color: #000; }
   .eyebrow, .project-date, .hero-summary, .company, .experience-period, .education-grid p, .supporting-entries p, footer { color: #333; }
 }
+
