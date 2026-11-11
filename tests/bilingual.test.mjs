@@ -39,6 +39,17 @@ test("provides translations for every HTML key", () => {
     }
 });
 
+test("keeps project and job dates translatable and consistent with the static résumé", () => {
+    const periods = [...html.matchAll(/<p class="(?:project-date|experience-period)"([^>]*)>([^<]+)<\/p>/g)];
+    assert.ok(periods.length > 0);
+    for (const [, attributes, fallback] of periods) {
+        const key = /\bdata-i18n="([^"]+\.period)"/.exec(attributes)?.[1];
+        assert.ok(key, `Date missing a translation key: ${fallback}`);
+        assert.equal(fallback, TRANSLATIONS[DEFAULT_LANGUAGE][key]);
+        assert.ok(TRANSLATIONS.en[key]?.trim(), `Missing English date: ${key}`);
+    }
+});
+
 test("stores a supported language and tolerates blocked storage", () => {
     const values = new Map();
     const storage = {
